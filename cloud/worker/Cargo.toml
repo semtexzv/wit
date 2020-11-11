@@ -6,4 +6,4 @@ edition = "2018"
 
 [dependencies]
 common = { path = "../common" }
-executor = { package = "witfun-executor", path = "./executor" }
+executor = { package = "executor", path = "./executor" }

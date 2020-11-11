@@ -2,8 +2,8 @@
 <module type="CPP_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/common/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cloud/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cloud/common/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/debug/build/common-01049e9085987729/out" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/debug/build/prost-build-91b8eb729822d13c/out" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/debug/build/log-3e529b53db9f5ec7/out" isTestSource="false" />
@@ -16,13 +16,14 @@
       <sourceFolder url="file://$MODULE_DIR$/target/debug/build/memchr-9fb6921dffe8ea5e/out" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/debug/build/pin-project-internal-011afff515bb609a/out" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/target/debug/build/httparse-cbb9b0721ff6a152/out" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/router/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/controller/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/worker/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/worker/runtime/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/worker/codegen/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/worker/executor/src" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/gateway/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cloud/router/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cloud/controller/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cloud/worker/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/fun/runtime/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/fun/codegen/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cloud/worker/executor/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cloud/gateway/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/fun/src" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />

@@ -3,14 +3,14 @@
 
 use common::prelude::*;
 use common::Event;
-use async_std::net::SocketAddr;
 use hyper::service::{make_service_fn, service_fn};
 use std::convert::Infallible;
+use std::net::SocketAddr;
 use hyper::header::HOST;
 use hyper::Body;
 
 
-pub async fn run(rec: Recipient<Event>) {
+pub async fn run(rec: Recipient<Event>, addr: SocketAddr) {
     let rec = rec.clone();
     let svc = service_fn(move |req| {
         let rec = rec.clone();
@@ -41,7 +41,7 @@ pub async fn run(rec: Recipient<Event>) {
         }
     });
 
-    let srv = hyper::Server::bind(&SocketAddr::from(([127, 0, 0, 1], 8080)))
+    let srv = hyper::Server::bind(&addr)
         .serve(make_svc);
 
     srv.await.unwrap();

@@ -5,6 +5,7 @@ authors = ["Michal Hornicky <mhornick@redhat.com>"]
 edition = "2018"
 
 [dependencies]
-tide = "*"
+tide = "0.14.0"
+mime = "0.3.16"
 async-std = { version = "*", features = ["tokio02"] }
 common = { path = "../common" }

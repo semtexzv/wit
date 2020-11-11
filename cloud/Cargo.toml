@@ -1,0 +1,11 @@
+[package]
+name = "witcloud"
+version = "0.0.1"
+edition = "2018"
+
+[dependencies]
+common = { path = "./common"}
+controller = { path = "./controller" }
+gateway = { path = "./gateway" }
+router = { path = "./router" }
+worker = { path = "./worker" }
