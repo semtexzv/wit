@@ -1,0 +1,30 @@
+syntax = "proto3";
+package wit.control;
+
+message Empty {
+
+}
+message FunctionCreated {
+  int64 account = 1;
+  int64 id = 2;
+  bytes body = 3;
+}
+
+enum NodeRole {
+  Worker = 0;
+}
+
+message NodeInfo {
+  bytes id = 2;
+  oneof abc {
+    NodeRole role = 1;
+    FunctionCreated created = 3;
+  }
+}
+message Control {
+  FunctionCreated func_created = 2;
+}
+
+service Controller {
+  rpc PollChange(NodeInfo) returns (stream Control);
+}

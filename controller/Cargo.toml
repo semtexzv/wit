@@ -1,0 +1,10 @@
+[package]
+name = "controller"
+version = "0.1.0"
+authors = ["Michal Hornicky <mhornick@redhat.com>"]
+edition = "2018"
+
+[dependencies]
+tide = "*"
+async-std = { version = "*", features = ["tokio02"] }
+common = { path = "../common" }

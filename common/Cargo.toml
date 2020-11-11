@@ -1,0 +1,22 @@
+[package]
+name = "common"
+version = "0.1.0"
+authors = ["Michal Hornicky <mhornick@redhat.com>"]
+edition = "2018"
+build = "build.rs"
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+#[build-dependencies]
+#tonic-build = "*"
+
+[dependencies]
+log = "0.4.11"
+futures = "0.3.8"
+actix = "0.10.0"
+tokio = "*"
+prost = "0.6.1"
+
+uuid = "0.8.1"
+bytes = "0.6.0"
+
+sha2 = "0.9.2"

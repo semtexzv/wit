@@ -1,0 +1,19 @@
+[workspace]
+members = [
+    "common",
+    "router",
+    "controller",
+    "gateway",
+    "worker", "worker/codegen", "worker/runtime", "worker/executor"]
+
+[package]
+name = "wit"
+version = "0.0.1"
+edition = "2018"
+
+[dependencies]
+common = { path = "./common" }
+controller = { path = "./controller" }
+gateway = { path = "./gateway" }
+router = { path = "./router" }
+worker = { path = "./worker" }

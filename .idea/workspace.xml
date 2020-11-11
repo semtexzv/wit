@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated />
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="CargoProjects">
+    <cargoProject FILE="$PROJECT_DIR$/Cargo.toml" />
+    <cargoProject FILE="$PROJECT_DIR$/common/Cargo.toml" />
+    <cargoProject FILE="$PROJECT_DIR$/router/Cargo.toml" />
+    <cargoProject FILE="$PROJECT_DIR$/controller/Cargo.toml" />
+    <cargoProject FILE="$PROJECT_DIR$/worker/Cargo.toml" />
+    <cargoProject FILE="$PROJECT_DIR$/gateway/Cargo.toml" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="7828f555-3db4-4325-bb43-00c729441c2e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/common/build.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/proto/control.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/prelude.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worker/codegen/Cargo.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worker/codegen/src/lib.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worker/executor/Cargo.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worker/executor/src/lib.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worker/runtime/Cargo.toml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worker/runtime/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/worker/runtime/src/lib.rs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Rust File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="a0v0o0g8" />
+  </component>
+  <component name="ProjectId" id="1k4ErrwWgPYoq9WBkLGIOvBVXV6" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/worker" />
+    <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
+    <property name="org.rust.disableDetachedFileInspection/home/mhornicky/wit/build.rs" value="true" />
+    <property name="org.rust.disableDetachedFileInspection/home/mhornicky/wit/controller/src/main.rs" value="true" />
+    <property name="org.rust.disableDetachedFileInspection/home/mhornicky/wit/router/src/main.rs" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/worker" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/common" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Test" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="test --all" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="RustProjectSettings">
+    <option name="toolchainHomeDirectory" value="$PROJECT_DIR$/../.cargo/bin" />
+    <option name="version" value="2" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7828f555-3db4-4325-bb43-00c729441c2e" name="Default Changelist" comment="" />
+      <created>1604951664346</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604951664346</updated>
+      <workItem from="1604951665946" duration="4940000" />
+      <workItem from="1604962760806" duration="2326000" />
+      <workItem from="1605104286382" duration="550000" />
+      <workItem from="1605104852420" duration="750000" />
+      <workItem from="1605112516560" duration="6482000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1920" y="198" width="1081" height="711" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605124658810">
+      <screen x="48" y="0" width="4432" height="1080" />
+    </state>
+    <state x="737" y="198" width="1081" height="711" key="#com.intellij.execution.impl.EditConfigurationsDialog/48.0.1872.1080@48.0.1872.1080" timestamp="1604951913024" />
+    <state x="1920" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/48.0.4432.1080@48.0.4432.1080" timestamp="1605124658810" />
+    <state x="2016" y="100" width="2368" height="884" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1605125111028">
+      <screen x="48" y="0" width="4432" height="1080" />
+    </state>
+    <state x="2016" y="100" width="2368" height="884" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/48.0.4432.1080@48.0.4432.1080" timestamp="1605125111028" />
+    <state x="975" y="344" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1604951767119">
+      <screen x="48" y="0" width="1872" height="1080" />
+    </state>
+    <state x="975" y="344" key="#com.intellij.fileTypes.FileTypeChooser/48.0.1872.1080@48.0.1872.1080" timestamp="1604951767119" />
+    <state x="1812" y="259" width="382" height="565" key="#com.intellij.ide.util.MemberChooser" timestamp="1605124564953">
+      <screen x="48" y="0" width="4432" height="1080" />
+    </state>
+    <state x="793" y="259" width="382" height="565" key="#com.intellij.ide.util.MemberChooser/48.0.1872.1080@48.0.1872.1080" timestamp="1605114442643" />
+    <state x="1812" y="259" key="#com.intellij.ide.util.MemberChooser/48.0.4432.1080@48.0.4432.1080" timestamp="1605124564953" />
+    <state x="1235" y="113" width="438" height="602" key="ExperimentsDialog" timestamp="1604952661087">
+      <screen x="48" y="0" width="1872" height="1080" />
+    </state>
+    <state x="1235" y="113" width="438" height="602" key="ExperimentsDialog/48.0.1872.1080@48.0.1872.1080" timestamp="1604952661087" />
+    <state x="297" y="298" width="432" height="487" key="FileChooserDialogImpl" timestamp="1604999205244">
+      <screen x="48" y="0" width="1872" height="1080" />
+    </state>
+    <state x="297" y="298" width="432" height="487" key="FileChooserDialogImpl/48.0.1872.1080@48.0.1872.1080" timestamp="1604999205244" />
+    <state width="2518" height="469" key="GridCell.Tab.0.bottom" timestamp="1605125001194">
+      <screen x="48" y="0" width="4432" height="1080" />
+    </state>
+    <state width="2518" height="288" key="GridCell.Tab.0.bottom/48.0.1872.1080/1920.0.2560.1080@1920.0.2560.1080" timestamp="1605104835643" />
+    <state width="1830" height="288" key="GridCell.Tab.0.bottom/48.0.1872.1080@48.0.1872.1080" timestamp="1605114939796" />
+    <state width="2518" height="469" key="GridCell.Tab.0.bottom/48.0.4432.1080@48.0.4432.1080" timestamp="1605125001194" />
+    <state width="2518" height="469" key="GridCell.Tab.0.center" timestamp="1605125001193">
+      <screen x="48" y="0" width="4432" height="1080" />
+    </state>
+    <state width="2518" height="288" key="GridCell.Tab.0.center/48.0.1872.1080/1920.0.2560.1080@1920.0.2560.1080" timestamp="1605104835642" />
+    <state width="1830" height="288" key="GridCell.Tab.0.center/48.0.1872.1080@48.0.1872.1080" timestamp="1605114939795" />
+    <state width="2518" height="469" key="GridCell.Tab.0.center/48.0.4432.1080@48.0.4432.1080" timestamp="1605125001193" />
+    <state width="2518" height="469" key="GridCell.Tab.0.left" timestamp="1605125001192">
+      <screen x="48" y="0" width="4432" height="1080" />
+    </state>
+    <state width="2518" height="288" key="GridCell.Tab.0.left/48.0.1872.1080/1920.0.2560.1080@1920.0.2560.1080" timestamp="1605104835642" />
+    <state width="1830" height="288" key="GridCell.Tab.0.left/48.0.1872.1080@48.0.1872.1080" timestamp="1605114939795" />
+    <state width="2518" height="469" key="GridCell.Tab.0.left/48.0.4432.1080@48.0.4432.1080" timestamp="1605125001192" />
+    <state width="2518" height="469" key="GridCell.Tab.0.right" timestamp="1605125001193">
+      <screen x="48" y="0" width="4432" height="1080" />
+    </state>
+    <state width="2518" height="288" key="GridCell.Tab.0.right/48.0.1872.1080/1920.0.2560.1080@1920.0.2560.1080" timestamp="1605104835642" />
+    <state width="1830" height="288" key="GridCell.Tab.0.right/48.0.1872.1080@48.0.1872.1080" timestamp="1605114939795" />
+    <state width="2518" height="469" key="GridCell.Tab.0.right/48.0.4432.1080@48.0.4432.1080" timestamp="1605125001193" />
+    <state x="1117" y="240" width="672" height="678" key="search.everywhere.popup" timestamp="1604953760037">
+      <screen x="48" y="0" width="1872" height="1080" />
+    </state>
+    <state x="1117" y="240" width="672" height="678" key="search.everywhere.popup/48.0.1872.1080@48.0.1872.1080" timestamp="1604953760037" />
+  </component>
+</project>

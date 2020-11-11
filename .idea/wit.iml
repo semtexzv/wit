@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CPP_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/common/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/common-01049e9085987729/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/prost-build-91b8eb729822d13c/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/log-3e529b53db9f5ec7/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/indexmap-c94d187b53aab27d/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/libc-2e9c21e92145cfbf/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/anyhow-af69ab4eae36f608/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/syn-6c21e1cca15eb8e2/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/proc-macro2-fac9cf692c45c4fe/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/getrandom-31a73196ac389c22/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/memchr-9fb6921dffe8ea5e/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/pin-project-internal-011afff515bb609a/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/target/debug/build/httparse-cbb9b0721ff6a152/out" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/router/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/controller/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/worker/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/worker/runtime/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/worker/codegen/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/worker/executor/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/gateway/src" isTestSource="false" />
+      <excludeFolder url="file://$MODULE_DIR$/target" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
