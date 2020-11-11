@@ -1,4 +1,3 @@
-use wasmer::*;
 use log::*;
 
 pub use wasmer::*;

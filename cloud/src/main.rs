@@ -13,7 +13,8 @@ fn main() {
     std::env::set_var("RUST_LOG", "info");
     env_logger::init();
     actix::run(async move {
-        let workers = SyncArbiter::start(2, || Worker::new());
+        let c = worker::modcache();
+        let workers = SyncArbiter::start(2, move || Worker::new(c.clone()));
         let router = Router::start(Router::new(workers.recipient()));
         let control = Controller::start(router.clone(), SocketAddr::from(([127, 0, 0, 1], 9090)));
 

@@ -7,3 +7,4 @@ edition = "2018"
 [dependencies]
 common = { path = "../common" }
 executor = { package = "executor", path = "./executor" }
+flurry = "0.3.1"
