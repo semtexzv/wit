@@ -5,12 +5,12 @@ use common::prelude::*;
 use async_std::net::SocketAddr;
 use std::net::ToSocketAddrs;
 use common::prelude::sha2::Digest;
-use common::{Function, Assignment, FunHash};
+use common::{Function, Rule, FunHash};
 use common::prelude::dev::fut::wrap_future;
 
 pub struct Controller {
     functions: Recipient<Function>,
-    assignments: Recipient<Assignment>,
+    assignments: Recipient<Rule>,
 }
 
 impl Actor for Controller {
@@ -19,7 +19,7 @@ impl Actor for Controller {
 
 impl Controller {
     pub fn start<R>(r: Addr<R>, addr: SocketAddr) -> Addr<Controller>
-    where R: Actor<Context=Context<R>> + Handler<Function> + Handler<Assignment>
+    where R: Actor<Context=Context<R>> + Handler<Function> + Handler<Rule>
     {
         Actor::create(|ctx| {
             ctx.spawn(wrap_future(handle(ctx.address(), addr)));
@@ -39,10 +39,10 @@ impl Handler<Function> for Controller {
     }
 }
 
-impl Handler<Assignment> for Controller {
+impl Handler<Rule> for Controller {
     type Result = ();
 
-    fn handle(&mut self, msg: Assignment, ctx: &mut Self::Context) -> Self::Result {
+    fn handle(&mut self, msg: Rule, ctx: &mut Self::Context) -> Self::Result {
         self.assignments.do_send(msg).unwrap()
     }
 }
@@ -66,7 +66,7 @@ async fn post_function(mut req: tide::Request<Addr<Controller>>) -> tide::Result
 }
 
 async fn post_assign(mut req: tide::Request<Addr<Controller>>) -> tide::Result {
-    let mut body: Assignment = req.body_json().await?;
+    let mut body: Rule = req.body_json().await?;
     let x = req.state().send(body).await.unwrap();
 
     Ok(tide::Response::builder(tide::http::StatusCode::Created)
@@ -77,6 +77,6 @@ async fn post_assign(mut req: tide::Request<Addr<Controller>>) -> tide::Result {
 async fn handle(control: Addr<Controller>, addr: SocketAddr) {
     let mut app = tide::with_state(control);
     app.at("/functions").post(post_function);
-    app.at("/assignments").post(post_assign);
+    app.at("/rules").post(post_assign);
     app.listen(addr).await.unwrap();
 }

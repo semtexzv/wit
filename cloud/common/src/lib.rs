@@ -57,7 +57,7 @@ pub struct Function {
 
 #[derive(Serialize, Deserialize, Message)]
 #[rtype(result = "()")]
-pub struct Assignment {
+pub struct Rule {
     pub spec: EventSpec,
     pub func: FunHash,
 }

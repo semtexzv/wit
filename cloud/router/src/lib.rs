@@ -3,7 +3,7 @@
 
 use common::prelude::*;
 use std::collections::HashMap;
-use common::{FunHash, Function, Event, Assignment, EventSpec, Invoke};
+use common::{FunHash, Function, Event, Rule, EventSpec, Invoke};
 
 pub struct Router {
     functions: HashMap<FunHash, Bytes>,
@@ -33,10 +33,10 @@ impl Handler<Function> for Router {
     }
 }
 
-impl Handler<Assignment> for Router {
+impl Handler<Rule> for Router {
     type Result = ();
 
-    fn handle(&mut self, msg: Assignment, ctx: &mut Context<Self>) -> Self::Result {
+    fn handle(&mut self, msg: Rule, ctx: &mut Context<Self>) -> Self::Result {
         self.assignments.insert(msg.spec, msg.func);
     }
 }
@@ -85,7 +85,7 @@ fn test_router() {
         let router = Router::start(Router::new(worker.recipient()));
 
         router.send(Function { body: Bytes::new(), id: Default::default() }).await.unwrap();
-        router.send(Assignment { fun: Default::default(), spec: "/test".to_string() }).await.unwrap();
+        router.send(Rule { fun: Default::default(), spec: "/test".to_string() }).await.unwrap();
 
         let req = Bytes::from_static(&[0, 0]);
         let res = router.send(Event { spec: "/test".to_string(), data: req.clone() }).await.unwrap();
