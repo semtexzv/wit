@@ -13,13 +13,13 @@ use serde::{Serializer, Deserializer};
 use serde::de::Error;
 use std::convert::TryInto;
 
-#[derive(Debug, Default, Ord, PartialOrd, Eq, PartialEq, Hash)]
+#[derive(Debug, Clone, Copy, Default, Ord, PartialOrd, Eq, PartialEq, Hash)]
 pub struct FunHash(pub [u8; 32]);
 
 impl Serialize for FunHash {
     fn serialize<S>(&self, serializer: S) -> Result<<S as Serializer>::Ok, <S as Serializer>::Error> where
         S: Serializer {
-        serializer.serialize_str(&base64::encode(&self.0))
+        serializer.serialize_str(&hex::encode(&self.0))
     }
 }
 
@@ -27,7 +27,7 @@ impl<'de> Deserialize<'de> for FunHash {
     fn deserialize<D>(deserializer: D) -> Result<Self, <D as Deserializer<'de>>::Error> where
         D: Deserializer<'de> {
         let res = String::deserialize(deserializer)
-            .and_then(|string| base64::decode(&string).map_err(|err| D::Error::custom(err.to_string())))
+            .and_then(|string| hex::decode(&string).map_err(|err| D::Error::custom(err.to_string())))
             .and_then(|bytes| bytes.as_slice().try_into().map_err(|_| D::Error::custom("failed to deserialize public key")))?;
 
         Ok(FunHash(res))
@@ -59,7 +59,7 @@ pub struct Function {
 #[rtype(result = "()")]
 pub struct Assignment {
     pub spec: EventSpec,
-    pub fun: FunHash,
+    pub func: FunHash,
 }
 
 //#[derive(Debug, Clone, Ord, PartialOrd, Eq, PartialEq, Hash)]
@@ -75,6 +75,7 @@ pub struct Event {
 #[derive(Message)]
 #[rtype(result = "Result<Bytes,()>")]
 pub struct Invoke {
+    pub funid: FunHash,
     pub fun: Bytes,
     pub event: Event,
 }

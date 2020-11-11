@@ -10,5 +10,7 @@ members = [
 
     "fun",
     "fun/codegen",
-    "fun/runtime"
+    "fun/runtime",
+
+    "examples/capitalize"
 ]

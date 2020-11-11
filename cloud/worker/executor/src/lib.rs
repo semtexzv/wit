@@ -1,6 +1,7 @@
 use wasmer::*;
 use log::*;
 
+pub use wasmer::*;
 pub use anyhow::Result;
 
 fn _ipcs_arg_count(ctx: &mut Ctx) -> u32 {
@@ -50,21 +51,22 @@ struct IoData<'a> {
     args: &'a [&'a [u8]],
 }
 
-/// Execute wasm module (which is expected to conform to ipcs platform
-/// along with a list of arguments (arguments provided here are raw buffers). At this layer we don't care about IPFS
-/// TODO: Introduce file-like abstraction to support streaming processing of data.
-pub fn exec(wasm: &[u8], args: &[&[u8]]) -> Result<Vec<u8>, wasmer::error::Error> {
-    let imports = imports! {
+pub fn imports() -> ImportObject {
+    imports! {
         "_ipcs" => {
             "_ipcs_arg_count" => func!(_ipcs_arg_count),
             "_ipcs_arg_len" => func!(_ipcs_arg_len),
             "_ipcs_arg_read" => func!(_ipcs_arg_read),
             "_ipcs_ret" => func!(_ipcs_ret),
         },
-    };
+    }
+}
 
-    let mut instance = instantiate(wasm, &imports)?;
 
+/// Execute wasm module (which is expected to conform to ipcs platform
+/// along with a list of arguments (arguments provided here are raw buffers). At this layer we don't care about IPFS
+/// TODO: Introduce file-like abstraction to support streaming processing of data.
+pub fn exec(mut instance: Instance, args: &[&[u8]]) -> Result<Vec<u8>, wasmer::error::Error> {
     let mut io_data = IoData { ret: vec![], args };
 
     instance.context_mut().data = &mut io_data as *mut _ as *mut _;

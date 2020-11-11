@@ -37,7 +37,7 @@ impl Handler<Assignment> for Router {
     type Result = ();
 
     fn handle(&mut self, msg: Assignment, ctx: &mut Context<Self>) -> Self::Result {
-        self.assignments.insert(msg.spec, msg.fun);
+        self.assignments.insert(msg.spec, msg.func);
     }
 }
 
@@ -45,6 +45,7 @@ impl Handler<Event> for Router {
     type Result = Response<Bytes, ()>;
 
     fn handle(&mut self, event: Event, ctx: &mut Context<Self>) -> Self::Result {
+        info!("Router event");
         let fun = if let Some(fun) = self.assignments.get(&event.spec) {
             fun
         } else {
@@ -57,6 +58,7 @@ impl Handler<Event> for Router {
             return Response::reply(Err(()));
         };
         Response::fut(self.workers.send(Invoke {
+            funid: fun.clone(),
             fun: body.clone(),
             event,
         }).map(|e| e.unwrap()))

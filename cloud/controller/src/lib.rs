@@ -51,14 +51,15 @@ async fn post_function(mut req: tide::Request<Addr<Controller>>) -> tide::Result
     let body = req.body_bytes().await?;
     let body = Bytes::from(body);
     let id = sha2::Sha256::digest(&body);
+    let id = FunHash(id.into());
 
     req.state().send(Function {
-        id: FunHash(id.clone().into()),
+        id: id.clone(),
         body,
     }).await.unwrap();
 
     Ok(tide::Response::builder(tide::http::StatusCode::Created)
-        .body(tide::Body::from(id.as_slice()))
+        .body(tide::Body::from_json(&json::json!({ "id": id }))?)
         .content_type(tide::http::mime::BYTE_STREAM)
         .build()
     )

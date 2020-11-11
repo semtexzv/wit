@@ -24,7 +24,10 @@ pub async fn run(rec: Recipient<Event>, addr: SocketAddr) {
                 spec,
                 data: Bytes::from(hyper::body::to_bytes(req.into_body()).await.unwrap().to_vec()),
             };
-            let res = rec.send(event).await.unwrap().unwrap();
+
+            let res = rec.send(event).await
+                .unwrap()
+                .unwrap();
 
             //let req = hyper::Response::builder().
 

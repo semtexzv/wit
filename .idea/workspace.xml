@@ -19,35 +19,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7828f555-3db4-4325-bb43-00c729441c2e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/cloud/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud/common/src/lib.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cloud/controller/src/lib.rs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fun/Cargo.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/fun/src/main.rs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/.cargo/config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/build-capitalize.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/event.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scripts/upload-capitalize.sh" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/wit.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/wit.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/common/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/build.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/common/build.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/proto/control.proto" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/common/proto/control.proto" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/lib.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/prelude.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/common/src/prelude.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/controller/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/controller/src/lib.rs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/gateway/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gateway/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/gateway/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/router/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/router/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/router/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/src/main.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/worker/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker/codegen/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/fun/codegen/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker/codegen/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/fun/codegen/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker/executor/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/worker/executor/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker/executor/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/worker/executor/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker/runtime/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/fun/runtime/Cargo.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker/runtime/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker/runtime/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/fun/runtime/src/lib.rs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/worker/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/worker/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud/common/Cargo.toml" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/common/Cargo.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud/common/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/common/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud/common/src/prelude.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/common/src/prelude.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud/controller/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/controller/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud/gateway/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/gateway/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud/router/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/router/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/src/main.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud/worker/executor/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/worker/executor/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cloud/worker/src/lib.rs" beforeDir="false" afterPath="$PROJECT_DIR$/cloud/worker/src/lib.rs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fun/src/main.rs" beforeDir="false" afterPath="$PROJECT_DIR$/fun/src/lib.rs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,7 +72,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/worker" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../capitalize" />
     <property name="org.rust.cargo.project.model.PROJECT_DISCOVERY" value="true" />
     <property name="org.rust.disableDetachedFileInspection/home/mhornicky/wit/build.rs" value="true" />
     <property name="org.rust.disableDetachedFileInspection/home/mhornicky/wit/controller/src/main.rs" value="true" />
@@ -99,10 +89,22 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Cargo.cloud">
     <configuration name="Test" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
       <option name="channel" value="DEFAULT" />
       <option name="command" value="test --all" />
+      <option name="allFeatures" value="false" />
+      <option name="emulateTerminal" value="false" />
+      <option name="backtrace" value="SHORT" />
+      <option name="workingDirectory" value="file://$PROJECT_DIR$" />
+      <envs />
+      <method v="2">
+        <option name="CARGO.BUILD_TASK_PROVIDER" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="cloud" type="CargoCommandRunConfiguration" factoryName="Cargo Command">
+      <option name="channel" value="DEFAULT" />
+      <option name="command" value="run --package witcloud" />
       <option name="allFeatures" value="false" />
       <option name="emulateTerminal" value="false" />
       <option name="backtrace" value="SHORT" />
@@ -117,6 +119,10 @@
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Cargo.Test" />
+      <item itemvalue="Cargo.cloud" />
+    </list>
   </component>
   <component name="RustProjectSettings">
     <option name="toolchainHomeDirectory" value="$PROJECT_DIR$/../.cargo/bin" />
@@ -134,7 +140,7 @@
       <workItem from="1604962760806" duration="2326000" />
       <workItem from="1605104286382" duration="550000" />
       <workItem from="1605104852420" duration="750000" />
-      <workItem from="1605112516560" duration="9107000" />
+      <workItem from="1605112516560" duration="15161000" />
     </task>
     <servers />
   </component>
@@ -142,10 +148,10 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1920" y="198" width="1081" height="711" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605127590705">
-      <screen x="48" y="0" width="4432" height="1080" />
+    <state x="737" y="198" width="1081" height="711" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605133083104">
+      <screen x="48" y="0" width="1872" height="1080" />
     </state>
-    <state x="737" y="198" width="1081" height="711" key="#com.intellij.execution.impl.EditConfigurationsDialog/48.0.1872.1080@48.0.1872.1080" timestamp="1604951913024" />
+    <state x="737" y="198" width="1081" height="711" key="#com.intellij.execution.impl.EditConfigurationsDialog/48.0.1872.1080@48.0.1872.1080" timestamp="1605133083104" />
     <state x="1920" y="198" key="#com.intellij.execution.impl.EditConfigurationsDialog/48.0.4432.1080@48.0.4432.1080" timestamp="1605127590705" />
     <state x="2016" y="100" width="2368" height="884" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1605125111028">
       <screen x="48" y="0" width="4432" height="1080" />
@@ -160,43 +166,94 @@
     </state>
     <state x="793" y="259" width="382" height="565" key="#com.intellij.ide.util.MemberChooser/48.0.1872.1080@48.0.1872.1080" timestamp="1605114442643" />
     <state x="1812" y="259" key="#com.intellij.ide.util.MemberChooser/48.0.4432.1080@48.0.4432.1080" timestamp="1605126646097" />
+    <state width="436" height="485" key="DebuggerActiveHint" timestamp="1605134941954">
+      <screen x="48" y="0" width="1872" height="1080" />
+    </state>
+    <state width="436" height="485" key="DebuggerActiveHint/48.0.1872.1080@48.0.1872.1080" timestamp="1605134941954" />
     <state x="1235" y="113" width="438" height="602" key="ExperimentsDialog" timestamp="1604952661087">
       <screen x="48" y="0" width="1872" height="1080" />
     </state>
     <state x="1235" y="113" width="438" height="602" key="ExperimentsDialog/48.0.1872.1080@48.0.1872.1080" timestamp="1604952661087" />
-    <state x="3200" y="0" width="1284" height="1084" key="FileChooserDialogImpl" timestamp="1605127223835">
-      <screen x="48" y="0" width="4432" height="1080" />
+    <state x="297" y="298" width="1284" height="1084" key="FileChooserDialogImpl" timestamp="1605128132884">
+      <screen x="48" y="0" width="1872" height="1080" />
     </state>
-    <state x="297" y="298" width="432" height="487" key="FileChooserDialogImpl/48.0.1872.1080@48.0.1872.1080" timestamp="1604999205244" />
+    <state x="297" y="298" width="432" height="487" key="FileChooserDialogImpl/48.0.1872.1080@48.0.1872.1080" timestamp="1605128132884" />
     <state x="3200" y="0" width="1284" height="1084" key="FileChooserDialogImpl/48.0.4432.1080@48.0.4432.1080" timestamp="1605127223835" />
-    <state width="1234" height="439" key="GridCell.Tab.0.bottom" timestamp="1605127618198">
-      <screen x="48" y="0" width="4432" height="1080" />
+    <state width="1830" height="439" key="GridCell.Tab.0.bottom" timestamp="1605136689632">
+      <screen x="48" y="0" width="1872" height="1080" />
     </state>
     <state width="2518" height="288" key="GridCell.Tab.0.bottom/48.0.1872.1080/1920.0.2560.1080@1920.0.2560.1080" timestamp="1605104835643" />
-    <state width="1830" height="288" key="GridCell.Tab.0.bottom/48.0.1872.1080@48.0.1872.1080" timestamp="1605114939796" />
-    <state width="1234" height="439" key="GridCell.Tab.0.bottom/48.0.4432.1080@48.0.4432.1080" timestamp="1605127618198" />
-    <state width="1234" height="439" key="GridCell.Tab.0.center" timestamp="1605127618197">
-      <screen x="48" y="0" width="4432" height="1080" />
+    <state width="1830" height="439" key="GridCell.Tab.0.bottom/48.0.1872.1080@48.0.1872.1080" timestamp="1605136689632" />
+    <state width="1234" height="439" key="GridCell.Tab.0.bottom/48.0.4432.1080@48.0.4432.1080" timestamp="1605127743239" />
+    <state width="1830" height="439" key="GridCell.Tab.0.center" timestamp="1605136689631">
+      <screen x="48" y="0" width="1872" height="1080" />
     </state>
     <state width="2518" height="288" key="GridCell.Tab.0.center/48.0.1872.1080/1920.0.2560.1080@1920.0.2560.1080" timestamp="1605104835642" />
-    <state width="1830" height="288" key="GridCell.Tab.0.center/48.0.1872.1080@48.0.1872.1080" timestamp="1605114939795" />
-    <state width="1234" height="439" key="GridCell.Tab.0.center/48.0.4432.1080@48.0.4432.1080" timestamp="1605127618197" />
-    <state width="1234" height="439" key="GridCell.Tab.0.left" timestamp="1605127618197">
-      <screen x="48" y="0" width="4432" height="1080" />
+    <state width="1830" height="439" key="GridCell.Tab.0.center/48.0.1872.1080@48.0.1872.1080" timestamp="1605136689631" />
+    <state width="1234" height="439" key="GridCell.Tab.0.center/48.0.4432.1080@48.0.4432.1080" timestamp="1605127743239" />
+    <state width="1830" height="439" key="GridCell.Tab.0.left" timestamp="1605136689630">
+      <screen x="48" y="0" width="1872" height="1080" />
     </state>
     <state width="2518" height="288" key="GridCell.Tab.0.left/48.0.1872.1080/1920.0.2560.1080@1920.0.2560.1080" timestamp="1605104835642" />
-    <state width="1830" height="288" key="GridCell.Tab.0.left/48.0.1872.1080@48.0.1872.1080" timestamp="1605114939795" />
-    <state width="1234" height="439" key="GridCell.Tab.0.left/48.0.4432.1080@48.0.4432.1080" timestamp="1605127618197" />
-    <state width="1234" height="439" key="GridCell.Tab.0.right" timestamp="1605127618197">
-      <screen x="48" y="0" width="4432" height="1080" />
+    <state width="1830" height="439" key="GridCell.Tab.0.left/48.0.1872.1080@48.0.1872.1080" timestamp="1605136689630" />
+    <state width="1234" height="439" key="GridCell.Tab.0.left/48.0.4432.1080@48.0.4432.1080" timestamp="1605127743238" />
+    <state width="1830" height="439" key="GridCell.Tab.0.right" timestamp="1605136689632">
+      <screen x="48" y="0" width="1872" height="1080" />
     </state>
     <state width="2518" height="288" key="GridCell.Tab.0.right/48.0.1872.1080/1920.0.2560.1080@1920.0.2560.1080" timestamp="1605104835642" />
-    <state width="1830" height="288" key="GridCell.Tab.0.right/48.0.1872.1080@48.0.1872.1080" timestamp="1605114939795" />
-    <state width="1234" height="439" key="GridCell.Tab.0.right/48.0.4432.1080@48.0.4432.1080" timestamp="1605127618197" />
+    <state width="1830" height="439" key="GridCell.Tab.0.right/48.0.1872.1080@48.0.1872.1080" timestamp="1605136689632" />
+    <state width="1234" height="439" key="GridCell.Tab.0.right/48.0.4432.1080@48.0.4432.1080" timestamp="1605127743239" />
+    <state width="1830" height="356" key="GridCell.Tab.1.bottom" timestamp="1605135278227">
+      <screen x="48" y="0" width="1872" height="1080" />
+    </state>
+    <state width="1830" height="356" key="GridCell.Tab.1.bottom/48.0.1872.1080@48.0.1872.1080" timestamp="1605135278227" />
+    <state width="1830" height="356" key="GridCell.Tab.1.center" timestamp="1605135278226">
+      <screen x="48" y="0" width="1872" height="1080" />
+    </state>
+    <state width="1830" height="356" key="GridCell.Tab.1.center/48.0.1872.1080@48.0.1872.1080" timestamp="1605135278226" />
+    <state width="1830" height="356" key="GridCell.Tab.1.left" timestamp="1605135278226">
+      <screen x="48" y="0" width="1872" height="1080" />
+    </state>
+    <state width="1830" height="356" key="GridCell.Tab.1.left/48.0.1872.1080@48.0.1872.1080" timestamp="1605135278226" />
+    <state width="1830" height="356" key="GridCell.Tab.1.right" timestamp="1605135278226">
+      <screen x="48" y="0" width="1872" height="1080" />
+    </state>
+    <state width="1830" height="356" key="GridCell.Tab.1.right/48.0.1872.1080@48.0.1872.1080" timestamp="1605135278226" />
     <state x="2579" y="240" width="1591" height="678" key="search.everywhere.popup" timestamp="1605126724031">
       <screen x="48" y="0" width="4432" height="1080" />
     </state>
     <state x="1117" y="240" width="672" height="678" key="search.everywhere.popup/48.0.1872.1080@48.0.1872.1080" timestamp="1604953760037" />
     <state x="2579" y="240" width="1591" height="678" key="search.everywhere.popup/48.0.4432.1080@48.0.4432.1080" timestamp="1605126724031" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/cloud/router/src/lib.rs</url>
+          <line>39</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/cloud/router/src/lib.rs</url>
+          <line>31</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/cloud/worker/src/lib.rs</url>
+          <line>35</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/cloud/controller/src/lib.rs</url>
+          <line>55</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/cloud/controller/src/lib.rs</url>
+          <line>51</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

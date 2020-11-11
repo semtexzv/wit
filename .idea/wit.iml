@@ -24,6 +24,8 @@
       <sourceFolder url="file://$MODULE_DIR$/cloud/worker/executor/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/cloud/gateway/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/fun/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/examples/capitalize/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/examples" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
     <orderEntry type="inheritedJdk" />
