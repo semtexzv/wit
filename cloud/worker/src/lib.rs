@@ -5,9 +5,11 @@ use std::collections::hash_map::Entry;
 use std::sync::{Arc, Mutex};
 
 pub type ModCache = Arc<Mutex<HashMap<FunHash, Arc<executor::Module>>>>;
+
 pub fn modcache() -> ModCache {
     Default::default()
 }
+
 pub struct Worker {
     cache: ModCache
 }
