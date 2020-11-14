@@ -3,16 +3,18 @@
 
 use common::prelude::*;
 use std::collections::HashMap;
-use common::{FunHash, Function, Event, Rule, EventSpec, Invoke};
+use common::{FunHash, Function, Event, Rule, Invoke, InvokeFun, FunctionUpdate, RuleUpdate, EventRecvd, InvokeResult};
 
+#[derive(ProcessDispatch)]
+#[dispatch(FunctionUpdate, RuleUpdate, EventRecvd)]
 pub struct Router {
-    functions: HashMap<FunHash, Bytes>,
-    assignments: HashMap<EventSpec, FunHash>,
-    workers: Recipient<Invoke>,
+    functions: HashMap<FunHash, Vec<u8>>,
+    assignments: HashMap<String, FunHash>,
+    workers: Recipient<InvokeFun>,
 }
 
 impl Router {
-    pub fn new(workers: Recipient<Invoke>) -> Self {
+    pub fn new(workers: Recipient<InvokeFun>) -> Self {
         Router {
             functions: Default::default(),
             assignments: Default::default(),
@@ -22,29 +24,29 @@ impl Router {
 }
 
 impl Actor for Router {
-    type Context = Context<Self>;
+    type Context = Process<Self>;
 }
 
-impl Handler<Function> for Router {
+impl Handler<FunctionUpdate> for Router {
     type Result = ();
 
-    fn handle(&mut self, msg: Function, ctx: &mut Context<Self>) -> Self::Result {
-        self.functions.insert(msg.id, msg.body);
+    fn handle(&mut self, msg: FunctionUpdate, ctx: &mut Process<Self>) -> Self::Result {
+        self.functions.insert(FunHash::from(msg.0.id), msg.0.body);
     }
 }
 
-impl Handler<Rule> for Router {
+impl Handler<RuleUpdate> for Router {
     type Result = ();
 
-    fn handle(&mut self, msg: Rule, ctx: &mut Context<Self>) -> Self::Result {
-        self.assignments.insert(msg.spec, msg.func);
+    fn handle(&mut self, msg: RuleUpdate, ctx: &mut Process<Self>) -> Self::Result {
+        self.assignments.insert(msg.0.spec, FunHash::from(msg.0.funid));
     }
 }
 
-impl Handler<Event> for Router {
-    type Result = Response<Bytes, ()>;
+impl Handler<EventRecvd> for Router {
+    type Result = Response<InvokeResult, ()>;
 
-    fn handle(&mut self, event: Event, ctx: &mut Context<Self>) -> Self::Result {
+    fn handle(&mut self, event: EventRecvd, ctx: &mut Process<Self>) -> Self::Result {
         info!("Router event");
         let fun = if let Some(fun) = self.assignments.get(&event.spec) {
             fun
@@ -57,11 +59,14 @@ impl Handler<Event> for Router {
         } else {
             return Response::reply(Err(()));
         };
-        Response::fut(self.workers.send(Invoke {
-            funid: fun.clone(),
-            fun: body.clone(),
-            event,
-        }).map(|e| e.unwrap()))
+
+        let work = self.workers.send(InvokeFun(Invoke {
+            funid: fun.0.to_vec(),
+            funbody: body.to_vec(),
+            event: Some(event.0),
+        }));
+
+        Response::fut(work.map(|e| e.unwrap()))
     }
 }
 
@@ -85,7 +90,7 @@ fn test_router() {
         let router = Router::start(Router::new(worker.recipient()));
 
         router.send(Function { body: Bytes::new(), id: Default::default() }).await.unwrap();
-        router.send(Rule { fun: Default::default(), spec: "/test".to_string() }).await.unwrap();
+        router.send(Rule { funid: Default::default(), spec: "/test".to_string() }).await.unwrap();
 
         let req = Bytes::from_static(&[0, 0]);
         let res = router.send(Event { spec: "/test".to_string(), data: req.clone() }).await.unwrap();

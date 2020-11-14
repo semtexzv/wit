@@ -8,4 +8,6 @@ edition = "2018"
 tide = "0.14.0"
 mime = "0.3.16"
 async-std = { version = "*", features = ["tokio02"] }
+serde = "1"
 common = { path = "../common" }
+

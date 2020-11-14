@@ -3,18 +3,28 @@
 
 pub mod prelude;
 
-// pub mod proto {
-//     //include!("./proto/wit.router.rs");
-//     include!("./proto/wit.control.rs");
-// }
+pub mod proto {
+    //include!("./proto/wit.router.rs");
+    include!("./proto/wit.control.rs");
+}
 
 use prelude::*;
 use serde::{Serializer, Deserializer};
 use serde::de::Error;
 use std::convert::TryInto;
+use prost::DecodeError;
+use bytes::{BufMut, Buf};
 
-#[derive(Debug, Clone, Copy, Default, Ord, PartialOrd, Eq, PartialEq, Hash)]
-pub struct FunHash(pub [u8; 32]);
+pub use proto::*;
+
+#[derive(Debug, Clone, Copy, Ord, PartialOrd, Eq, PartialEq, Hash)]
+pub struct FunHash(pub [u8;32]);
+
+impl From<Vec<u8>> for FunHash {
+    fn from(v: Vec<u8>) -> Self {
+        Self(v.try_into().unwrap())
+    }
+}
 
 impl Serialize for FunHash {
     fn serialize<S>(&self, serializer: S) -> Result<<S as Serializer>::Ok, <S as Serializer>::Error> where
@@ -34,20 +44,6 @@ impl<'de> Deserialize<'de> for FunHash {
     }
 }
 /*
-fn as_base64<S>(key: &FunHash, serializer: &mut S) -> Result<(), S::Error>
-where S: Serializer
-{
-    serializer.serialize_str(&base64::encode(&key.0))
-}
-
-fn from_base64<'de, D>(deserializer: &mut D) -> Result<FunHash, D::Error>
-where D: Deserializer<'de>
-{
-    use serde::de::Error;
-    String::deserialize(deserializer)
-
-}*/
-
 #[derive(Message)]
 #[rtype(result = "()")]
 pub struct Function {
@@ -78,4 +74,4 @@ pub struct Invoke {
     pub funid: FunHash,
     pub fun: Bytes,
     pub event: Event,
-}
+}*/

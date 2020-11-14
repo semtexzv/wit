@@ -2,15 +2,16 @@
 #![deny(unused_must_use)]
 
 use common::prelude::*;
-use common::Event;
+use common::{Event, EventRecvd};
 use hyper::service::{make_service_fn, service_fn};
 use std::convert::Infallible;
 use std::net::SocketAddr;
 use hyper::header::HOST;
 use hyper::Body;
+use common::prelude::quix::process::PidRecipient;
 
 
-pub async fn run(rec: Recipient<Event>, addr: SocketAddr) {
+pub async fn run(rec: PidRecipient<EventRecvd>, addr: SocketAddr) {
     let rec = rec.clone();
     let svc = service_fn(move |req| {
         let rec = rec.clone();
@@ -22,16 +23,16 @@ pub async fn run(rec: Recipient<Event>, addr: SocketAddr) {
             let spec = format!("/http/{}", parts.collect::<Vec<_>>().join("/"));
             let event = Event {
                 spec,
-                data: Bytes::from(hyper::body::to_bytes(req.into_body()).await.unwrap().to_vec()),
+                data: hyper::body::to_bytes(req.into_body()).await.unwrap().to_vec(),
             };
 
-            let res = rec.send(event).await
+            let res = rec.send(EventRecvd(event)).await
                 .unwrap()
                 .unwrap();
 
             //let req = hyper::Response::builder().
 
-            let body = Body::from(res.to_vec());
+            let body = Body::from(res.response.to_vec());
             let resp = hyper::Response::new(body);
             Ok::<hyper::Response<_>, Infallible>(resp)
         }

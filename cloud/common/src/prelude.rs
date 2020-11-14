@@ -6,8 +6,12 @@ pub use futures::prelude::*;
 
 pub use actix;
 pub use actix::prelude::*;
+pub use actix::fut::*;
 
-pub use sha2;
+pub use quix::{self, Pid, Process};
+pub use quix::ProcessDispatch;
+
+pub use sha2::{self, Digest};
 
 pub use json;
 pub use serde::{self, Serialize, Deserialize};
