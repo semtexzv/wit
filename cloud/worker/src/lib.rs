@@ -4,6 +4,8 @@ use std::collections::HashMap;
 use std::collections::hash_map::Entry;
 use std::sync::{Arc, Mutex};
 
+use quix::DispatchError;
+
 pub type ModCache = Arc<Mutex<HashMap<FunHash, Arc<executor::Module>>>>;
 
 pub fn modcache() -> ModCache {
@@ -27,7 +29,7 @@ impl Actor for Worker {
 }
 
 impl Handler<InvokeFun> for Worker {
-    type Result = Result<InvokeResult, ()>;
+    type Result = Result<InvokeResult, DispatchError>;
 
     fn handle(&mut self, msg: InvokeFun, _ctx: &mut Self::Context) -> Self::Result {
         let module: Arc<executor::Module> = {

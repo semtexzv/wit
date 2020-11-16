@@ -43,35 +43,3 @@ impl<'de> Deserialize<'de> for FunHash {
         Ok(FunHash(res))
     }
 }
-/*
-#[derive(Message)]
-#[rtype(result = "()")]
-pub struct Function {
-    pub id: FunHash,
-    pub body: Bytes,
-}
-
-#[derive(Serialize, Deserialize, Message)]
-#[rtype(result = "()")]
-pub struct Rule {
-    pub spec: EventSpec,
-    pub func: FunHash,
-}
-
-//#[derive(Debug, Clone, Ord, PartialOrd, Eq, PartialEq, Hash)]
-pub type EventSpec = String;
-
-#[derive(Message)]
-#[rtype(result = "Result<Bytes,()>")]
-pub struct Event {
-    pub spec: EventSpec,
-    pub data: Bytes,
-}
-
-#[derive(Message)]
-#[rtype(result = "Result<Bytes,()>")]
-pub struct Invoke {
-    pub funid: FunHash,
-    pub fun: Bytes,
-    pub event: Event,
-}*/

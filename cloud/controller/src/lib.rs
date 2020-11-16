@@ -7,9 +7,9 @@ use std::net::ToSocketAddrs;
 use common::prelude::*;
 use common::{FunHash, FunctionUpdate, RuleUpdate, Function, Rule};
 use common::prelude::sha2::Digest;
-use common::prelude::quix::process::{ProcessDispatch, PidRecipient};
+use common::prelude::quix::{DispatchError, process::{DynHandler, PidRecipient}};
 
-#[derive(ProcessDispatch)]
+#[derive(DynHandler)]
 #[dispatch(FunctionUpdate, RuleUpdate)]
 pub struct Controller {
     functions: PidRecipient<FunctionUpdate>,
@@ -22,7 +22,7 @@ impl Actor for Controller {
 
 impl Controller {
     pub fn start<R>(r: Pid<R>, addr: SocketAddr) -> Pid<Controller>
-    where R: Actor<Context=Process<R>> + ProcessDispatch + Handler<FunctionUpdate> + Handler<RuleUpdate>
+    where R: Actor<Context=Process<R>> + DynHandler + Handler<FunctionUpdate> + Handler<RuleUpdate>
     {
         Process::start_with(|ctx| {
             ctx.spawn(wrap_future(handle(ctx.pid(), addr)));
@@ -35,18 +35,23 @@ impl Controller {
 }
 
 impl Handler<FunctionUpdate> for Controller {
-    type Result = ();
+    type Result = Result<(), DispatchError>;
 
     fn handle(&mut self, msg: FunctionUpdate, ctx: &mut Self::Context) -> Self::Result {
         self.functions.do_send(msg).unwrap();
+        Ok(())
     }
 }
 
 impl Handler<RuleUpdate> for Controller {
-    type Result = ();
+    type Result = Result<(), DispatchError>;
 
     fn handle(&mut self, msg: RuleUpdate, ctx: &mut Self::Context) -> Self::Result {
-        self.assignments.do_send(msg).unwrap()
+        let sent = self.assignments.send(msg);
+        ctx.spawn(wrap_future(async move {
+            sent.await.unwrap().unwrap()
+        }));
+        Ok(())
     }
 }
 
@@ -59,7 +64,7 @@ async fn post_function(mut req: tide::Request<Pid<Controller>>) -> tide::Result 
     req.state().send(FunctionUpdate(Function {
         id: id.0.to_vec(),
         body,
-    })).await.unwrap();
+    })).await.unwrap().unwrap();
 
     Ok(tide::Response::builder(tide::http::StatusCode::Created)
         .body(tide::Body::from_json(&json::json!({ "id": id }))?)
@@ -78,7 +83,7 @@ async fn post_assign(mut req: tide::Request<Pid<Controller>>) -> tide::Result {
     let mut body: RuleApi = req.body_json().await?;
     let x = req.state().clone().send(RuleUpdate(Rule {
         spec: body.spec,
-        funid: body.func.0.to_vec()
+        funid: body.func.0.to_vec(),
     })).await.unwrap();
 
     Ok(tide::Response::builder(tide::http::StatusCode::Created)

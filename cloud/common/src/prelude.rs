@@ -9,7 +9,7 @@ pub use actix::prelude::*;
 pub use actix::fut::*;
 
 pub use quix::{self, Pid, Process};
-pub use quix::ProcessDispatch;
+pub use quix::DynHandler;
 
 pub use sha2::{self, Digest};
 

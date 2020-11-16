@@ -1,7 +1,7 @@
 syntax = "proto3";
 package wit.control;
 
-message Empty {}
+import "google/protobuf/empty.proto";
 
 message Function {
   bytes id = 1;
@@ -34,9 +34,9 @@ message InvokeResult {
 }
 
 service Data {
-  rpc Update(StaticData) returns(Empty);
-  rpc FunctionUpdate(Function) returns(Empty);
-  rpc RuleUpdate(Rule) returns(Empty);
+  rpc Update(StaticData) returns(google.protobuf.Empty);
+  rpc FunctionUpdate(Function) returns(google.protobuf.Empty);
+  rpc RuleUpdate(Rule) returns(google.protobuf.Empty);
 }
 
 service Work {

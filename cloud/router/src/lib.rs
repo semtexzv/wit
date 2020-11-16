@@ -4,8 +4,9 @@
 use common::prelude::*;
 use std::collections::HashMap;
 use common::{FunHash, Function, Event, Rule, Invoke, InvokeFun, FunctionUpdate, RuleUpdate, EventRecvd, InvokeResult};
+use quix::DispatchError;
 
-#[derive(ProcessDispatch)]
+#[derive(DynHandler)]
 #[dispatch(FunctionUpdate, RuleUpdate, EventRecvd)]
 pub struct Router {
     functions: HashMap<FunHash, Vec<u8>>,
@@ -28,36 +29,38 @@ impl Actor for Router {
 }
 
 impl Handler<FunctionUpdate> for Router {
-    type Result = ();
+    type Result = Result<(), DispatchError>;
 
     fn handle(&mut self, msg: FunctionUpdate, ctx: &mut Process<Self>) -> Self::Result {
         self.functions.insert(FunHash::from(msg.0.id), msg.0.body);
+        Ok(())
     }
 }
 
 impl Handler<RuleUpdate> for Router {
-    type Result = ();
+    type Result = Result<(), DispatchError>;
 
     fn handle(&mut self, msg: RuleUpdate, ctx: &mut Process<Self>) -> Self::Result {
         self.assignments.insert(msg.0.spec, FunHash::from(msg.0.funid));
+        Ok(())
     }
 }
 
 impl Handler<EventRecvd> for Router {
-    type Result = Response<InvokeResult, ()>;
+    type Result = Response<InvokeResult, DispatchError>;
 
     fn handle(&mut self, event: EventRecvd, ctx: &mut Process<Self>) -> Self::Result {
         info!("Router event");
         let fun = if let Some(fun) = self.assignments.get(&event.spec) {
             fun
         } else {
-            return Response::reply(Err(()));
+            return Response::reply(Ok(InvokeResult::default()));
         };
 
         let body = if let Some(body) = self.functions.get(&fun) {
             body
         } else {
-            return Response::reply(Err(()));
+            return Response::reply(Ok(InvokeResult::default()));
         };
 
         let work = self.workers.send(InvokeFun(Invoke {
