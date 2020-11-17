@@ -31,19 +31,23 @@ fn config() -> Config {
         sc,
     };
 
-    match args.next().unwrap().as_str() {
-        "-l" | "--listen" => {
-            res.listen = SocketAddr::from_str(&args.next().unwrap()).unwrap();
-        }
-        "-c" | "--connect" => {
-            res.connect = Some(SocketAddr::from_str(&args.next().unwrap()).unwrap())
-        }
-        "-h" | "--help" => {
-            std::process::exit(0)
-        }
-        _ => {
-            std::process::exit(1)
-        }
+    loop {
+        if let Some(next) = args.next() {
+            match next.as_str() {
+                "-l" | "--listen" => {
+                    res.listen = SocketAddr::from_str(&args.next().unwrap()).unwrap();
+                }
+                "-c" | "--connect" => {
+                    res.connect = Some(SocketAddr::from_str(&args.next().unwrap()).unwrap())
+                }
+                "-h" | "--help" => {
+                    std::process::exit(0)
+                }
+                _ => {
+                    std::process::exit(1)
+                }
+            }
+        } else { break; }
     }
     res
 }
@@ -69,14 +73,19 @@ fn main() {
                 let c = worker::modcache();
                 let workers = SyncArbiter::start(2, move || Worker::new(c.clone()));
                 let router = Process::start(Router::new(workers.recipient()));
+                gateway::run(router.recipient(), SocketAddr::from(([127, 0, 0, 1], 8080))).await;
             }
             "control" => {
-                Controller::start(SocketAddr::from(([127, 0, 0, 1], 1010)));
+                Controller::start(SocketAddr::from(([127, 0, 0, 1], 10001)));
+            }
+            "gateway" => {}
+            _ => {
+                panic!("Unknown subcommand")
             }
         }
 
+        let (tx, mut rx) = tokio::sync::mpsc::channel::<()>(2);
+        rx.next().await;
 
-        tx.send(router.clone()).unwrap();
-        gateway::run(router.recipient(), SocketAddr::from(([127, 0, 0, 1], 8080))).await;
     }).unwrap();
-});
+}

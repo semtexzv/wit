@@ -54,6 +54,11 @@ impl<A> UpdateAddr for Pid<A> where A: Handler<Update> + DynHandler {
         Box::pin(self.send(Update(arg)).map(|r| r.and_then(|r|r) ))
     }
 }
+impl UpdateAddr for PidRecipient<Update> {
+    fn update(&self, arg: StaticData) -> BoxFuture<'static, Result<(), DispatchError>> {
+        Box::pin(self.send(Update(arg)).map(|r| r.and_then(|r|r) ))
+    }
+}
 impl UpdateAddr for NodeId {
     fn update(&self, arg: StaticData) ->BoxFuture<'static, Result<(), DispatchError>> {
         Box::pin(self.send(Update(arg)))
@@ -65,9 +70,9 @@ impl actix::Message for Update {
 }
 
 impl quix::derive::RpcMethod for Update {
-
     const NAME: &'static str = "wit.control.Data.update";
     const ID: u32 = 2033402647;
+
 
     fn write(&self, b: &mut impl bytes::BufMut) -> Result<(), DispatchError> {
         prost::Message::encode(&self.0, b).map_err(|_| DispatchError::MessageFormat)
@@ -122,6 +127,11 @@ impl<A> FunctionUpdateAddr for Pid<A> where A: Handler<FunctionUpdate> + DynHand
         Box::pin(self.send(FunctionUpdate(arg)).map(|r| r.and_then(|r|r) ))
     }
 }
+impl FunctionUpdateAddr for PidRecipient<FunctionUpdate> {
+    fn function_update(&self, arg: Function) -> BoxFuture<'static, Result<(), DispatchError>> {
+        Box::pin(self.send(FunctionUpdate(arg)).map(|r| r.and_then(|r|r) ))
+    }
+}
 impl FunctionUpdateAddr for NodeId {
     fn function_update(&self, arg: Function) ->BoxFuture<'static, Result<(), DispatchError>> {
         Box::pin(self.send(FunctionUpdate(arg)))
@@ -133,9 +143,9 @@ impl actix::Message for FunctionUpdate {
 }
 
 impl quix::derive::RpcMethod for FunctionUpdate {
-
     const NAME: &'static str = "wit.control.Data.function_update";
     const ID: u32 = 2604232651;
+
 
     fn write(&self, b: &mut impl bytes::BufMut) -> Result<(), DispatchError> {
         prost::Message::encode(&self.0, b).map_err(|_| DispatchError::MessageFormat)
@@ -190,6 +200,11 @@ impl<A> RuleUpdateAddr for Pid<A> where A: Handler<RuleUpdate> + DynHandler {
         Box::pin(self.send(RuleUpdate(arg)).map(|r| r.and_then(|r|r) ))
     }
 }
+impl RuleUpdateAddr for PidRecipient<RuleUpdate> {
+    fn rule_update(&self, arg: Rule) -> BoxFuture<'static, Result<(), DispatchError>> {
+        Box::pin(self.send(RuleUpdate(arg)).map(|r| r.and_then(|r|r) ))
+    }
+}
 impl RuleUpdateAddr for NodeId {
     fn rule_update(&self, arg: Rule) ->BoxFuture<'static, Result<(), DispatchError>> {
         Box::pin(self.send(RuleUpdate(arg)))
@@ -201,9 +216,9 @@ impl actix::Message for RuleUpdate {
 }
 
 impl quix::derive::RpcMethod for RuleUpdate {
-
     const NAME: &'static str = "wit.control.Data.rule_update";
     const ID: u32 = 158844763;
+
 
     fn write(&self, b: &mut impl bytes::BufMut) -> Result<(), DispatchError> {
         prost::Message::encode(&self.0, b).map_err(|_| DispatchError::MessageFormat)
@@ -258,6 +273,11 @@ impl<A> EventRecvdAddr for Pid<A> where A: Handler<EventRecvd> + DynHandler {
         Box::pin(self.send(EventRecvd(arg)).map(|r| r.and_then(|r|r) ))
     }
 }
+impl EventRecvdAddr for PidRecipient<EventRecvd> {
+    fn event_recvd(&self, arg: Event) -> BoxFuture<'static, Result<InvokeResult, DispatchError>> {
+        Box::pin(self.send(EventRecvd(arg)).map(|r| r.and_then(|r|r) ))
+    }
+}
 impl EventRecvdAddr for NodeId {
     fn event_recvd(&self, arg: Event) ->BoxFuture<'static, Result<InvokeResult, DispatchError>> {
         Box::pin(self.send(EventRecvd(arg)))
@@ -269,9 +289,9 @@ impl actix::Message for EventRecvd {
 }
 
 impl quix::derive::RpcMethod for EventRecvd {
-
     const NAME: &'static str = "wit.control.Work.event_recvd";
     const ID: u32 = 2600550877;
+
 
     fn write(&self, b: &mut impl bytes::BufMut) -> Result<(), DispatchError> {
         prost::Message::encode(&self.0, b).map_err(|_| DispatchError::MessageFormat)
@@ -281,11 +301,11 @@ impl quix::derive::RpcMethod for EventRecvd {
     }
 
     fn read_result(b: impl bytes::Buf) -> Self::Result {
-        Ok(<InvokeResult>::decode(b).unwrap())
+        Ok(<InvokeResult>::decode(b)?)
     }
 
     fn write_result(res: &Self::Result, b: &mut impl bytes::BufMut) -> Result<(), DispatchError> {
-        let a: &InvokeResult = res.as_ref().unwrap(); a.encode(b).unwrap();
+        let a: &InvokeResult = res.as_ref()?; a.encode(b)?;
         Ok(())
     }
 }
@@ -326,6 +346,11 @@ impl<A> InvokeFunAddr for Pid<A> where A: Handler<InvokeFun> + DynHandler {
         Box::pin(self.send(InvokeFun(arg)).map(|r| r.and_then(|r|r) ))
     }
 }
+impl InvokeFunAddr for PidRecipient<InvokeFun> {
+    fn invoke_fun(&self, arg: Invoke) -> BoxFuture<'static, Result<InvokeResult, DispatchError>> {
+        Box::pin(self.send(InvokeFun(arg)).map(|r| r.and_then(|r|r) ))
+    }
+}
 impl InvokeFunAddr for NodeId {
     fn invoke_fun(&self, arg: Invoke) ->BoxFuture<'static, Result<InvokeResult, DispatchError>> {
         Box::pin(self.send(InvokeFun(arg)))
@@ -337,9 +362,9 @@ impl actix::Message for InvokeFun {
 }
 
 impl quix::derive::RpcMethod for InvokeFun {
-
     const NAME: &'static str = "wit.control.Work.invoke_fun";
     const ID: u32 = 1970656331;
+
 
     fn write(&self, b: &mut impl bytes::BufMut) -> Result<(), DispatchError> {
         prost::Message::encode(&self.0, b).map_err(|_| DispatchError::MessageFormat)
@@ -349,11 +374,11 @@ impl quix::derive::RpcMethod for InvokeFun {
     }
 
     fn read_result(b: impl bytes::Buf) -> Self::Result {
-        Ok(<InvokeResult>::decode(b).unwrap())
+        Ok(<InvokeResult>::decode(b)?)
     }
 
     fn write_result(res: &Self::Result, b: &mut impl bytes::BufMut) -> Result<(), DispatchError> {
-        let a: &InvokeResult = res.as_ref().unwrap(); a.encode(b).unwrap();
+        let a: &InvokeResult = res.as_ref()?; a.encode(b)?;
         Ok(())
     }
 }
